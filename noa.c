@@ -1,6 +1,6 @@
 #include "noa.h"
 
-void tick(int* counter, const NBytecode* bytecode, NVM* vm) {}
+void tick(int* counter, const NBytecode* bytecode, NSpace* space) {}
 
 NBytecode compile(const char[]* script) {}
 
@@ -8,15 +8,30 @@ typedef struct NBytecode {
     int[] intcode;
 } NBytecode;
 
-typedef struct NVM {} NVM;
+typedef struct NSpace {
+    NClass[] classes;
+    NInterface[] interfaces;
+    NMethod[] methods;
+    NVar[] vars;
+} NSpace;
 
-int
-vdef_=2,
-fdef_=0,
-cdef_=1,
+typedef struct NClass {
+    char[] name;
+    NClass[] subc;
+    NInterface[] subi;
+    NMethod[] methods;
+    NVar[] vars;
+} NClass;
 
-set_=4,
-return_=5,
+typedef struct NInterface {
+    char[] name;
+    NMethod[] methods;
+} NInterface;
 
-const_=6,
-ptr_=7;
+typedef struct NMethod {
+    char[] name;
+} NMethod;
+
+typedef struct NVar {
+    char[] name;
+} NVar;
