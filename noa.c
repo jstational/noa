@@ -1,4 +1,5 @@
 #include "noa.h"
+// #include "yourHeader.h" (if you have your own implementation of hashmap)
 
 void tick(int* counter, const NBytecode* bytecode, NSpace* space) {}
 
